@@ -7,6 +7,7 @@ const router = express.Router();
 
 // RENDER HOME PAGE TO "/" ROOT PATH
 router.get("/", setAuthStatus, async (req, res) => {
+  console.log("ok1");
   res.render("home", { authenticated: req.isAuthenticated });
 });
 
@@ -18,6 +19,10 @@ router.get("/sign-in", (req, res) => {
 // RENDER SIGN-UP PAGE TO "/sign-up" PATH
 router.get("/sign-up", (req, res) => {
   res.render("signup");
+});
+
+router.get("/about",setAuthStatus, async(req,res)=>{
+  res.render("about",{authenticated:req.isAuthenticated});
 });
 
 export default router;
